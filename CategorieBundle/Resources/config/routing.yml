@@ -1,0 +1,19 @@
+newstore_categorie_index:
+    pattern:  /
+    defaults: { _controller: NewstoreCategorieBundle:Categorie:index }
+
+newstore_categorie_ajouter:
+    pattern:  /ajouter
+    defaults: { _controller: NewstoreCategorieBundle:Categorie:ajouter }
+
+newstore_categorie_modifier:
+    pattern:  /modifier/{id}
+    defaults: { _controller: NewstoreCategorieBundle:Categorie:modifier }
+
+newstore_categorie_supprimer:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: NewstoreCategorieBundle:Categorie:supprimer }
+    
+newstore_categorie_voir:
+    pattern:  /voir/{id}
+    defaults: { _controller: NewstoreCategorieBundle:Categorie:voir }

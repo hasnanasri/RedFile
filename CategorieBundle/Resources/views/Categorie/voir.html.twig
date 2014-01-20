@@ -1,0 +1,24 @@
+{% extends 'NewstoreCategorieBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>Categorie N&deg;{{Categorie.id}}: {{Categorie.libelle}}</h1>
+<hr/>
+<div class="well">
+    <p><b>Lib&eacute;ll&eacute; :</b> {{Categorie.libelle}}</p>
+    <p><b>Raccourci :</b> {{Categorie.raccourci}}</p>
+</div>
+<p>
+    <a href="{{ path('newstore_categorie_index') }}" class="btn">
+        <i class="icon-chevron-left"></i>
+        Retour &agrave; la liste
+    </a>
+    <a href="{{ path('newstore_categorie_modifier', {'id':Categorie.id}) }}" class="btn">
+        <i class="icon-edit"></i>
+        Modifier le Categorie
+    </a>
+    <a href="{{ path('newstore_categorie_supprimer', {'id':Categorie.id}) }}" class="btn">
+        <i class="icon-trash"></i>
+        Supprimer le Categorie
+    </a>
+</p>
+{%endblock%}

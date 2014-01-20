@@ -1,0 +1,19 @@
+newstore_magasin_index:
+    pattern:  /
+    defaults: { _controller: NewstoreMagasinBundle:Magasin:index }
+
+newstore_magasin_ajouter:
+    pattern:  /ajouter
+    defaults: { _controller: NewstoreMagasinBundle:Magasin:ajouter }
+    
+newstore_magasin_supprimer:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: NewstoreMagasinBundle:Magasin:supprimer }
+    
+newstore_magasin_modifier:
+    pattern:  /modifier/{id}
+    defaults: { _controller: NewstoreMagasinBundle:Magasin:modifier }
+    
+newstore_magasin_voir:
+    pattern:  /voir/{id}
+    defaults: { _controller: NewstoreMagasinBundle:Magasin:voir }

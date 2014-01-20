@@ -1,0 +1,12 @@
+{% extends 'NewstoreMagasinBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>Modification d'un magasin</h1>
+<hr/>
+<div class="well">
+    <form method="post" {{ form_enctype(form) }}>
+{{ form_widget(form) }}
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</div>
+{%endblock%}

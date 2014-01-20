@@ -1,0 +1,93 @@
+{% extends 'NewstoreLivraisonBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>Modification d'une livraison :  {{Livraison.id}}</h1>
+
+<div class="well">
+    <h3>Information sur la livraison</h3>
+    <form method="post" {{ form_enctype(form) }} class="form">
+        <div class="form-row">
+        {{ form_label(form.reference) }}
+        {{ form_errors(form.reference) }}
+        {{ form_widget(form.reference) }}
+        </div>
+        <div class="form-row">
+        {{ form_label(form.statut) }}
+        {{ form_errors(form.statut) }}
+        {{ form_widget(form.statut) }}
+        </div>
+        <div class="form-row">
+        {{ form_label(form.dateLivraison) }}
+        {{ form_errors(form.dateLivraison) }}
+        {{ form_widget(form.dateLivraison) }}
+        </div>
+        <div class="form-row">
+        {{ form_label(form.magasin) }}
+        {{ form_errors(form.magasin) }}
+        {{ form_widget(form.magasin) }}
+        </div>
+        <h3>Liste des produits</h3>
+        <div id="buttonAdd"></div>
+        <div>
+            {{ form_errors(form.produits) }}
+            {{ form_widget(form.produits) }}
+        </div>
+        <div>
+            {{ form_rest(form) }}
+        </div>
+
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</div>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+        var $container = $('div#newstore_livraisonbundle_livraisontype_produits');
+
+        var $lienAjout = $('<a href="#" id="ajout_produit" class="btn">Ajouter un produit</a><hr/>');
+        $("#buttonAdd").append($lienAjout);
+
+        $lienAjout.click(function(e) {
+            ajouterProduit($container);
+            e.preventDefault();
+            return false;
+        });
+        var index = $container.find(':input').length;
+        if (index === 0) {
+            ajouterProduit($container);
+        } else {
+            $container.children('div').each(function() {
+                ajouterLienSuppression($(this));
+            });
+        }
+        function ajouterProduit($container) {
+            var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Produit n°' + (index + 1))
+                    .replace(/__name__/g, index));
+
+            ajouterLienSuppression($prototype);
+            $container.append($prototype);
+            $("#newstore_livraisonbundle_livraisontype_produits_"+index).addClass('produits');
+            index++;
+        }
+
+        function ajouterLienSuppression($prototype) {
+            $lienSuppression = $('<a href="#" class="btn btn-danger">Supprimer</a><hr/>');
+            $prototype.append($lienSuppression);
+
+            $lienSuppression.click(function(e) {
+                $prototype.remove();
+                e.preventDefault();
+                return false;
+            });
+        }
+    });
+</script>
+<style>
+    .produits label{
+        display: inline-block;
+        width: 200px;
+    }
+</style>
+{%endblock%}

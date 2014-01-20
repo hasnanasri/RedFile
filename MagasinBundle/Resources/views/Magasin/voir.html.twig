@@ -1,0 +1,33 @@
+{% extends 'NewstoreMagasinBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>{{magasin.designation}}</h1>
+<hr/>
+<div class="well">
+    <p><b>Adresse :</b> {{magasin.adresse}}</p>
+    <p><b>Code postal :</b> {{magasin.codepostal}}</p>
+    <p><b>Ville :</b> {{magasin.ville}}</p>
+    <p><b>Pays :</b>{{magasin.pays}}</p>
+    <p><b>T&eacute;l&eacute;phone :</b> {{magasin.telephone}}</p>
+    <p><b>Fax :</b> {% if magasin.fax|length > 0 %} {{magasin.fax}} {%else %} Pas de fax {%endif%}</p>
+    <h3>Interlocuteur</h3>
+    <p><b>Nom :</b> {{magasin.interlocuteurNom}}</p>
+    <p><b>Pr&eacute;nom :</b> {{magasin.interlocuteurPrenom}}</p>
+    <h3>Mapping</h3>
+
+</div>
+<p>
+    <a href="{{ path('newstore_magasin_index') }}" class="btn">
+        <i class="icon-chevron-left"></i>
+        Retour &agrave; la liste
+    </a>
+    <a href="{{ path('newstore_magasin_modifier', {'id':magasin.id}) }}" class="btn">
+        <i class="icon-edit"></i>
+        Modifier le magasin
+    </a>
+    <a href="{{ path('newstore_magasin_supprimer', {'id':magasin.id}) }}" class="btn">
+        <i class="icon-trash"></i>
+        Supprimer le magasin
+    </a>
+</p>
+{%endblock%}

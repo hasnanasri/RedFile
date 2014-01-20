@@ -1,0 +1,35 @@
+{% extends 'NewstoreLivraisonBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>Liste des livraisons</h1>
+{%if Livraisons|length > 0%}
+<table class="table">
+    <thead>
+    <th>Id</th>
+    <th>R&eacute;f&eacute;rence</th>
+    <th>Statut</th>
+    <th>Nombre de produits</th>
+    <th>Detail</th>
+    <th>Modifier</th>
+    <th>Supprimer</th>
+</thead>
+<tbody>
+        {% for item in Livraisons %}
+    <tr>
+        <td>{{item.livraison.id}}</td>
+        <td>{{item.livraison.reference}}</td>
+        <td>{%if item.livraison.statut == 0%}En attente{%else%}Livr&eacute;e{%endif%}</td>
+        <td>{{ render(controller("NewstoreLivraisonBundle:Livraison:gettotallivraison", {'id':item.livraison.id})) }}</td>
+        <td><a href="{{ path('newstore_livraison_voir', {'id':item.livraison.id}) }}">Detail</a></td>
+        <td><a href="{{ path('newstore_livraison_modifier', {'id':item.livraison.id}) }}">Modifier</a></td>
+        <td><a href="{{ path('newstore_livraison_supprimer', {'id':item.livraison.id}) }}">Supprimer</a></td>
+        <td>
+        </td>
+    </tr>
+        {% endfor %}
+</tbody>
+</table>
+{%else %}
+<p>Il n'y a aucune livraison</p>
+{% endif %}
+{%endblock%}

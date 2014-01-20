@@ -1,0 +1,19 @@
+{% extends 'NewstoreFournisseurBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h2>Supprimer un produit</h2>
+<hr/>
+<p>
+    Etes-vous certain de vouloir supprimer le produit "{{ Produit.designation }}" ?
+</p>
+
+<form action="{{ path('newstore_produit_supprimer', {'id': Produit.id}) }}" method="post">
+    <a href="{{ path('newstore_produit_voir', {'id': Produit.id}) }}" class="btn">
+        <i class="icon-chevron-left"></i>
+        Retour &agrave; au produit
+    </a>
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {{ form_rest(form) }}
+</form>
+
+  {%endblock%}

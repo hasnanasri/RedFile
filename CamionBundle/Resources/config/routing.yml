@@ -1,0 +1,19 @@
+newstore_camion_index:
+    pattern:  /
+    defaults: { _controller: NewstoreCamionBundle:Camion:index }
+
+newstore_camion_ajouter:
+    pattern:  /ajouter
+    defaults: { _controller: NewstoreCamionBundle:Camion:ajouter }
+
+newstore_camion_voir:
+    pattern:  /voir/{id}
+    defaults: { _controller: NewstoreCamionBundle:Camion:voir }
+
+newstore_camion_modifier:
+    pattern:  /modifier/{id}
+    defaults: { _controller: NewstoreCamionBundle:Camion:modifier }
+
+newstore_camion_supprimer:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: NewstoreCamionBundle:Camion:supprimer }

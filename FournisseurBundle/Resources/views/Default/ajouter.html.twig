@@ -1,0 +1,16 @@
+{% extends 'NewstoreFournisseurBundle::layoutbundle.html.twig' %}
+{%block vmenu_part%}
+<li class=""><a href="{{ path('newstore_fournisseur_index') }}"><i class="icon-chevron-right"></i> Liste des fournisseurs</a></li>
+<li class="active"><a href="{{ path('newstore_fournisseur_ajouter') }}"><i class="icon-chevron-right"></i> Ajouter un fournisseur</a></li>
+{%endblock%}
+
+{%block content%}
+<h1>Ajout d'un fournisseur</h1>
+<hr/>
+<div class="well">
+    <form method="post" {{ form_enctype(form) }}>
+{{ form_widget(form) }}
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</div>
+{%endblock%}

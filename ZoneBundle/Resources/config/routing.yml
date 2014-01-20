@@ -1,0 +1,24 @@
+newstore_zone_index:
+    pattern:  /
+    defaults: { _controller: NewstoreZoneBundle:Zone:index }
+    prefix: /admin/
+
+newstore_zone_ajouter:
+    pattern:  /ajouter
+    defaults: { _controller: NewstoreZoneBundle:Zone:ajouter }
+    prefix: /admin/
+    
+newstore_zone_modifier:
+    pattern:  /modifier/{id}
+    defaults: { _controller: NewstoreZoneBundle:Zone:modifier }
+    prefix: /admin/
+
+newstore_zone_supprimer:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: NewstoreZoneBundle:Zone:supprimer }
+    prefix: /admin/
+    
+newstore_zone_voir:
+    pattern:  /voir/{id}
+    defaults: { _controller: NewstoreZoneBundle:Zone:voir }
+    prefix: /admin/

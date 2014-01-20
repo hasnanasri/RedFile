@@ -1,0 +1,64 @@
+<?php
+
+namespace Newstore\ZoneBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ProduitZone
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Newstore\ZoneBundle\Entity\ProduitZoneRepository")
+ */
+class ProduitZone {
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Newstore\ProduitBundle\Entity\Produit")
+     */
+    private $produit;
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Newstore\ZoneBundle\Entity\Zone")
+     */
+    private $zone;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantite", type="integer")
+     */
+    private $quantite;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * Set quantite
+     *
+     * @param integer $quantite
+     * @return ProduitZone
+     */
+    public function setQuantite($quantite) {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    /**
+     * Get quantite
+     *
+     * @return integer 
+     */
+    public function getQuantite() {
+        return $this->quantite;
+    }
+
+}

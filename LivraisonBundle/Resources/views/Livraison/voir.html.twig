@@ -1,0 +1,60 @@
+{% extends 'NewstoreLivraisonBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>Livraison N&deg;{{Item.id}}</h1>
+<div class="well">
+    <h4>Information :</h4>
+    <p><b>R&eacute;f&eacute;rence :</b> {{Item.reference}}</p>
+    <p><b>Statut :</b> {%if Item.statut == 0%}En attente{%else%}Livr&eacute;e{%endif%}</p>
+    <p><b>{%if Item.statut == 0%}Date de livraison pr&eacute;vue{%else%}Livr&eacute;e le{%endif%} :</b> {{Item.dateLivraison|date("d/m/Y")}}</p>
+    <h4>Magasin :</h4>
+    <p><b>Designation :</b> {{Item.magasin.designation}}</p>
+    <p><b>Adresse :</b> 
+        {{Item.magasin.adresse}},
+        {{Item.magasin.codePostal}},
+        {{Item.magasin.ville}}
+    </p>
+    <h4>Liste des produits</h4>
+    {%if Item.produits|length > 0%}
+    <table class="table">
+        <thead>
+        <th>R&eacute;f&eacute;rence</th>
+        <th>D&eacute;signation</th>
+        <th>Quantit&eacute;</th>
+        </thead>
+        <tbody>
+        {%for item in Item.produits%}
+            <tr>
+                <td>{{item.produit.reference}}</td>
+                <td>{{item.produit.designation}}</td>
+                <td>{{item.quantite}}</td>
+            </tr>
+        {%endfor%}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td>Total : </td>
+                <td>{{ render(controller("NewstoreLivraisonBundle:Livraison:gettotallivraison", {'id':Item.id})) }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    {%else%}
+        Il n'y pas pas de produits attribués à cette livraison
+    {%endif%}
+</div>
+<p>
+    <a href="{{ path('newstore_livraison_index') }}" class="btn">
+        <i class="icon-chevron-left"></i>
+        Retour &agrave; la liste
+    </a>
+    <a href="{{ path('newstore_livraison_modifier', {'id':Item.id}) }}" class="btn">
+        <i class="icon-edit"></i>
+        Modifier la Livraison
+    </a>
+    <a href="{{ path('newstore_livraison_supprimer', {'id':Item.id}) }}" class="btn">
+        <i class="icon-trash"></i>
+        Supprimer la Livraison
+    </a>
+</p>
+{%endblock%}

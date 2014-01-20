@@ -1,0 +1,19 @@
+{% extends 'NewstoreCategorieBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h2>Supprimer une cat&eacute;gorie</h2>
+<hr/>
+<p>
+    Etes-vous certain de vouloir supprimer la cat&eacute;gorie"{{ Categorie.libelle}}" ?
+</p>
+
+<form action="{{ path('newstore_categorie_supprimer', {'id': Categorie.id}) }}" method="post">
+    <a href="{{ path('newstore_categorie_voir', {'id': Categorie.id}) }}" class="btn">
+        <i class="icon-chevron-left"></i>
+        Retour &agrave à la cat&eacute;gorie
+    </a>
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {{ form_rest(form) }}
+</form>
+
+  {%endblock%}

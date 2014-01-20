@@ -1,0 +1,37 @@
+{% extends 'NewstoreZoneBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+
+<script type="text/javascript" src="{{ asset('bundles/Newstore/js/lib/KineticJS.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/Newstore/js/functionSeeKinetic.js') }}"></script>
+
+
+<h1>Zone N&deg;{{Zone.id}}: {{Zone.libelle}}</h1>
+<hr/>
+<div class="well">
+    <p><b>Lib&eacute;ll&eacute; :</b> {{Zone.libelle}}</p>
+    <p><b>Coordonn&eacute;es :</b> <span id="zonedatamap">{{Zone.coordonnees}}</span></p>
+    <p><b>Color :</b> <span id="zonecolor">{{Zone.color}}</span></p>
+    <p>
+    <div id="ZoneCarte" >
+        <h5>Canvas</h5>
+        <input type ="hidden" id="CarteImg" name="img" value="{{asset('bundles/Newstore/images/carte.png')}}" />
+        <div id="container"></div>
+    </div>
+</p>
+</div>
+<p>
+    <a href="{{ path('newstore_zone_index') }}" class="btn">
+        <i class="icon-chevron-left"></i>
+        Retour &agrave; la liste
+    </a>
+    <a href="{{ path('newstore_zone_modifier', {'id':Zone.id}) }}" class="btn">
+        <i class="icon-edit"></i>
+        Modifier la Zone
+    </a>
+    <a href="{{ path('newstore_zone_supprimer', {'id':Zone.id}) }}" class="btn">
+        <i class="icon-trash"></i>
+        Supprimer la Zone
+    </a>
+</p>
+{%endblock%}

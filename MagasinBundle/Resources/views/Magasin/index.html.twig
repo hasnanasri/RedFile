@@ -1,0 +1,43 @@
+{% extends 'NewstoreMagasinBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+
+<h1>Liste des magasins</h1>
+<hr/>
+{% if Magasins|length > 0 %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>D&eacute;signation</td>
+            <td>Mail</td>
+            <td>T&eacute;l&eacute;phone</td>
+            <td>Code postal</td>
+            <td>D&eacute;tail</td>
+            <td>Modifier</td>
+            <td>Supprimer</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in Magasins %}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.designation}}</td>
+            <td>{{item.mail}}</td>
+            <td>{{item.telephone}}</td>
+            <td>{{item.codepostal}}</td>
+            <td><a href="{{ path('newstore_magasin_voir', {'id':item.id}) }}">Detail</a></td>
+            <td><a href="{{ path('newstore_magasin_modifier', {'id':item.id}) }}">Modifier</a></td>
+            <td><a href="{{ path('newstore_magasin_supprimer', {'id':item.id}) }}">Supprimer</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Il n'y a pas de magasins</p>
+<a href="{{path('newstore_magasin_ajouter')}}" class="btn" >Ajouter un magasin</a>
+
+{% endif %}
+
+{%endblock%}

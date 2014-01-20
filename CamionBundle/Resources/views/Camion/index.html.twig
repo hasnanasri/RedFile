@@ -1,0 +1,40 @@
+{% extends 'NewstoreCamionBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>Liste des camions</h1>
+<hr/>
+
+{% if Camions|length > 0 %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nom</td>
+            <td>Pr&eacute;nom</td>
+            <td>Immatriculation</td>
+            <td>Detail</td>
+            <td>Modifier</td>
+            <td>Supprimer</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in Camions %}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.conducteurName}}</td>
+            <td>{{item.conducteurPrenom}}</td>
+            <td>{{item.immatriculation}}</td>
+            <td><a href="{{ path('newstore_camion_voir', {'id':item.id}) }}">Detail</a></td>
+            <td><a href="{{ path('newstore_camion_modifier', {'id':item.id}) }}">Modifier</a></td>
+            <td><a href="{{ path('newstore_camion_supprimer', {'id':item.id}) }}">Supprimer</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{%else %}
+<p>Il n'y a aucun camion</p>
+<a href="{{path('newstore_camion_ajouter')}}" class="btn" >Ajouter un camion</a>
+{% endif %}
+
+{%endblock%}

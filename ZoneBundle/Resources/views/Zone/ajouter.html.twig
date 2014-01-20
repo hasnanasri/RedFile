@@ -1,0 +1,49 @@
+{% extends 'NewstoreZoneBundle::layoutbundle.html.twig' %}
+{%block vmenu_part%}
+<li class=""><a href="{{ path('newstore_zone_index') }}"><i class="icon-chevron-right"></i> Liste des Zones</a></li>
+<li class="active"><a href="{{ path('newstore_zone_ajouter') }}"><i class="icon-chevron-right"></i> Ajouter une zone</a></li>
+
+<div id="testcoord"></div>
+{%endblock%}
+
+{%block content%}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/bootstrap/css/colorpicker.css') }}" />
+<script type="text/javascript" src="{{ asset('bundles/Newstore/js/lib/KineticJS.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/bootstrap/js/bootstrap-colorpicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/Newstore/js/DrawingAdd.js') }}"></script>
+
+
+<h1>Ajout d'une zone</h1>
+<hr/>
+<div class="well">
+    <form method="post" {{ form_enctype(form) }}>
+{{ form_widget(form) }}
+        <div>
+            <h3>Cartographe</h3>
+            <div id="ControllerCanvas" class="active" data-toggle="buttons-radio">
+                <a id="select" class="btn btn-small" data-toggle="button">
+                    <span class="icon-hand-up"></span>
+                </a>
+                <a id="rectangle" class="btn btn-small" data-toggle="button">
+                    <span class="icon-stop"></span>
+                </a>   
+            </div> 
+            <a id="supprimerShape" class="btn btn-small">
+                <span class="icon-trash"></span>
+            </a>
+            <div id="couleur" class="btn btn-small input-append color" data-color="#000">
+                <input id="colorligne" class="input-mini" readonly="" value="" type="text">
+                <span class="add-on"> <i style="background-color:#000"></i> </span> 
+            </div>
+            <div id="ContainerCanvas"></div>
+        </div>
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</div>
+
+
+<input type ="hidden" id="CarteImg" name="img" value="{{asset('bundles/Newstore/images/carte.png')}}" />
+{%endblock%}
+
+
+

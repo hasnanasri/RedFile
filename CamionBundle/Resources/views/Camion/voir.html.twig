@@ -1,0 +1,32 @@
+{% extends 'NewstoreCamionBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>Camion N&deg;{{Camion.id}}</h1>
+<hr/>
+<div class="well">
+    <h4>Conducteur : </h4>
+    <p><b>Nom :</b> {{Camion.conducteurName}}</p>
+    <p><b>Pr&eacute;nom :</b> {{Camion.conducteurPrenom}}</p>
+    <p><b>Adresse :</b> {{Camion.conducteurAdresse}}</p>
+    <p><b>Code postal :</b> {{Camion.conducteurCodePostal}}</p>
+    <p><b>Ville :</b> {{Camion.conducteurVille}}</p>
+    <p><b>T&eacute;l&eacute;phone :</b> {{Camion.conducteurTelephone}}</p>
+    <h4>Information du camion : </h4>
+    <p><b>Immatriculation :</b> {{Camion.immatriculation}}</p>
+    <p><b>Volume :</b> {{Camion.capaciteVolume}} m&sup3;</p>
+</div>
+<p>
+    <a href="{{ path('newstore_camion_index') }}" class="btn">
+        <i class="icon-chevron-left"></i>
+        Retour &agrave; la liste
+    </a>
+    <a href="{{ path('newstore_camion_modifier', {'id':Camion.id}) }}" class="btn">
+        <i class="icon-edit"></i>
+        Modifier le Camion
+    </a>
+    <a href="{{ path('newstore_camion_supprimer', {'id':Camion.id}) }}" class="btn">
+        <i class="icon-trash"></i>
+        Supprimer le Camion
+    </a>
+</p>
+{%endblock%}

@@ -1,0 +1,34 @@
+{% extends 'NewstoreFournisseurBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>Liste des fournisseurs</h1>
+<hr/>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>D&eacute;signation</td>
+            <td>Mail</td>
+            <td>T&eacute;l&eacute;phone</td>
+            <td>Code postal</td>
+            <td>D&eacute;tail</td>
+            <td>Modifier</td>
+            <td>Supprimer</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in fournisseurs %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.designation}}</td>
+                <td>{{item.mail}}</td>
+                <td>{{item.telephone}}</td>
+                <td>{{item.codepostal}}</td>
+                <td><a href="{{ path('newstore_fournisseur_voir', {'id':item.id}) }}">Detail</a></td>
+                <td><a href="{{ path('newstore_fournisseur_modifier', {'id':item.id}) }}">Modifier</a></td>
+                <td><a href="{{ path('newstore_fournisseur_supprimer', {'id':item.id}) }}">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{%endblock%}

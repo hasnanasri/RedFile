@@ -1,0 +1,37 @@
+{% extends 'NewstoreCategorieBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>Liste des categories</h1>
+<hr/>
+
+{% if Categories|length > 0 %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Libelle</td>
+            <td>Raccourci</td>
+            <td>Detail</td>
+            <td>Modifier</td>
+            <td>Supprimer</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in Categories %}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.libelle}}</td>
+            <td>{{item.raccourci}}</td>
+            <td><a href="{{ path('newstore_categorie_voir', {'id':item.id}) }}">Detail</a></td>
+            <td><a href="{{ path('newstore_categorie_modifier', {'id':item.id}) }}">Modifier</a></td>
+            <td><a href="{{ path('newstore_categorie_supprimer', {'id':item.id}) }}">Supprimer</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{%else %}
+<p>Il n'y a aucune cat&eacute;gorie</p>
+{% endif %}
+
+{%endblock%}

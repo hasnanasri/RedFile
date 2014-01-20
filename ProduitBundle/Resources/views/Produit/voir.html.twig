@@ -1,0 +1,29 @@
+{% extends 'NewstoreProduitBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>Produit N&deg;{{Produit.id}}: {{Produit.designation}}</h1>
+<hr/>
+<div class="well">
+    <p><b>R&eacute;f&eacute;rence :</b> {{Produit.reference}}</p>
+    <p><b>Fournisseur :</b> <a href="{{path('newstore_fournisseur_voir', {'id':Produit.fournisseur.id})}}">{{Produit.fournisseur.designation}}</a></p>
+    <p><b>D&eacute;signation :</b> {{Produit.designation}}</p>
+    <p><b>Stock r&eacute;el :</b> {{Produit.stockReel}}</p>
+    <p><b>Stock disponible :</b> {{Produit.stockDisponible}}</p>
+    <p><b>Prix :</b> {{Produit.prix}} &euro;</p>
+
+</div>
+<p>
+    <a href="{{ path('newstore_produit_index') }}" class="btn">
+        <i class="icon-chevron-left"></i>
+        Retour &agrave; la liste
+    </a>
+    <a href="{{ path('newstore_produit_modifier', {'id':Produit.id}) }}" class="btn">
+        <i class="icon-edit"></i>
+        Modifier le Produit
+    </a>
+    <a href="{{ path('newstore_produit_supprimer', {'id':Produit.id}) }}" class="btn">
+        <i class="icon-trash"></i>
+        Supprimer le Produit
+    </a>
+</p>
+{%endblock%}

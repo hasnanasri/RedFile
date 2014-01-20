@@ -1,0 +1,34 @@
+{% extends '::myLayout.html.twig' %}
+{%block mainmenu %}
+    <li class="active"><a href="{{path('newstore_produit_index') }}">Produits</a></li>
+    <li class=""><a href="{{path('newstore_camion_index') }}">Livraisons</a></li>
+{%endblock%}
+{%block rowContainer%}
+<div id="menu" class="span3 bs-docs-sidebar well">
+    {%block vmenu%}
+    <ul class="nav nav-pills nav-stacked">
+        <li class=""><h4>Produit</h4></li>
+        <li class=""><a href="{{ path('newstore_produit_index') }}"><i class="icon-chevron-right"></i> Liste des Produits</a></li>
+        <li class=""><a href="{{ path('newstore_produit_ajouter') }}"><i class="icon-chevron-right"></i> Ajouter un produit</a></li>
+        <li><hr/></li>
+        <li class=""><h4>Catégories</h4></li>
+        <li class=""><a href="{{ path('newstore_categorie_index') }}"><i class="icon-chevron-right"></i> Liste des catégories</a></li>
+        <li class=""><a href="{{ path('newstore_categorie_ajouter') }}"><i class="icon-chevron-right"></i> Ajouter une catégorie</a></li>
+        <li class=""><hr/></li>
+        <li class=""><h4>Fournisseur</h4></li>
+        {%block vmenu_part%}
+        <li class="active"><a href="{{ path('newstore_fournisseur_index') }}"><i class="icon-chevron-right"></i> Liste des fournisseurs</a></li>
+        <li class=""><a href="{{ path('newstore_fournisseur_ajouter') }}"><i class="icon-chevron-right"></i> Ajouter un fournisseur</a></li>
+        {%endblock%}
+        <li class=""><hr/></li>
+        <li class=""><h4>Entrepot</h4></li>
+        <li class=""><a href="{{ path('newstore_zone_index') }}"><i class="icon-chevron-right"></i> Liste des zones</a></li>
+        <li class=""><a href="{{ path('newstore_zone_ajouter') }}"><i class="icon-chevron-right"></i> Ajouter une zone</a></li>
+    </ul>
+    {%endblock%}
+</div>
+<div id="content" class="span8">
+    {%block content%} 
+    {%endblock%}
+</div>
+{%endblock%}

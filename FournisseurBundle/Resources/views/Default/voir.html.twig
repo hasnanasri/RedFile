@@ -1,0 +1,32 @@
+{% extends 'NewstoreFournisseurBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>{{fournisseur.designation}}</h1>
+<hr/>
+<div class="well">
+    <p><b>Adresse :</b> {{fournisseur.adresse}}</p>
+    <p><b>Code postal :</b> {{fournisseur.codepostal}}</p>
+    <p><b>Ville :</b> {{fournisseur.ville}}</p>
+    <p><b>Pays :</b>{{fournisseur.pays}}</p>
+    <p><b>T&eacute;l&eacute;phone :</b> {{fournisseur.telephone}}</p>
+    <p><b>Fax :</b> {{fournisseur.fax}}</p>
+    <h3>Interlocuteur</h3>
+    <p><b>Nom :</b> {{fournisseur.interlocuteurNom}}</p>
+    <p><b>Pr&eacute;nom :</b> {{fournisseur.interlocuteurPrenom}}</p>
+
+</div>
+<p>
+    <a href="{{ path('newstore_fournisseur_homepage') }}" class="btn">
+        <i class="icon-chevron-left"></i>
+        Retour &agrave; la liste
+    </a>
+    <a href="{{ path('newstore_fournisseur_modifier', {'id':fournisseur.id}) }}" class="btn">
+        <i class="icon-edit"></i>
+        Modifier le fournisseur
+    </a>
+    <a href="{{ path('newstore_fournisseur_supprimer', {'id':fournisseur.id}) }}" class="btn">
+        <i class="icon-trash"></i>
+        Supprimer le fournisseur
+    </a>
+</p>
+{%endblock%}

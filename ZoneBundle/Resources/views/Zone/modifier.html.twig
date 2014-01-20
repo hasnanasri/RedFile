@@ -1,0 +1,49 @@
+{% extends 'NewstoreZoneBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/bootstrap/css/colorpicker.css') }}" />
+<script type="text/javascript" src="{{ asset('bundles/Newstore/js/lib/KineticJS.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/bootstrap/js/bootstrap-colorpicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/Newstore/js/functionDrawing.js') }}"></script>
+
+<h1>Modification de la Zone n°{{Zone.id}}</h1>
+<hr/>
+<div class="well">
+    <form method="post" {{ form_enctype(form) }}>
+{{ form_widget(form) }}
+
+        <div>
+            <h3>Cartographe</h3>
+            <div id="ControllerCanvas" class="active" data-toggle="buttons-radio">
+                <a id="select" class="btn btn-small" data-toggle="button">
+                    <span class="icon-hand-up"></span>
+                </a>
+                <a id="rectangle" class="btn btn-small" data-toggle="button">
+                    <span class="icon-stop"></span>
+                </a>   
+            </div> 
+            <a id="supprimerShape" class="btn btn-small">
+                <span class="icon-trash"></span>
+            </a>
+            <div id="couleur" class="btn btn-small input-append color" data-color="#000">
+                <input id="colorligne" class="input-mini" readonly="" value="" type="text">
+                <span class="add-on"> <i style="background-color:#000"></i> </span> 
+            </div>
+            <div id="hidden">
+                <ul>
+                    <li id="zonedatamap">{{Zone.coordonnees}}</li>
+                    <li id="zonecolor">{{Zone.color}}</li>
+                </ul>
+            </div>
+            <div id="ContainerCanvas"></div>
+        </div>
+        <a href="{{ path('newstore_zone_voir', {'id':Zone.id}) }} }}" class="btn">
+            <i class="icon-chevron-left"></i>
+            Retour &agrave; la zone
+        </a>
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</div>
+
+<input type ="hidden" id="CarteImg" name="img" value="{{asset('bundles/Newstore/images/carte.png')}}" />
+{%endblock%}

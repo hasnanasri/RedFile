@@ -1,0 +1,16 @@
+{% extends 'NewstoreCamionBundle::layoutbundle.html.twig' %}
+{%block vmenu_part%}
+        <li class=""><a href="{{ path('newstore_camion_index') }}"><i class="icon-chevron-right"></i> Liste des camions</a></li>
+        <li class="active"><a href="{{ path('newstore_camion_ajouter') }}"><i class="icon-chevron-right"></i> Ajouter un camion</a></li>
+{%endblock%}
+
+{%block content%}
+<h1>Ajout d'un camion</h1>
+<hr/>
+<div class="well">
+    <form method="post" {{ form_enctype(form) }}>
+{{ form_widget(form) }}
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</div>
+{%endblock%}

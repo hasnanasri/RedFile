@@ -1,0 +1,34 @@
+{% extends 'NewstoreProduitBundle::layoutbundle.html.twig' %}
+{%block vmenu%}
+<ul class="nav nav-pills nav-stacked">
+    <li class=""><h4>Produit</h4></li>
+    <li class="active"><a href="{{ path('newstore_produit_index') }}"><i class="icon-chevron-right"></i> Liste des Produits</a></li>
+    <li class=""><a href="{{ path('newstore_produit_ajouter') }}"><i class="icon-chevron-right"></i> Ajouter un produit</a></li>
+    <li><hr/></li>
+    <li class=""><h4>Catégories</h4></li>
+    <li class=""><a href=""><i class="icon-chevron-right"></i> Liste des catégories</a></li>
+    <li class=""><a href=""><i class="icon-chevron-right"></i> Ajouter une catégorie</a></li>
+    <li class=""><hr/></li>
+    <li class=""><h4>Zone de l&acute;entrepot</h4></li>
+    <li class=""><a href=""><i class="icon-chevron-right"></i> Liste des zones</a></li>
+    <li class=""><a href=""><i class="icon-chevron-right"></i> Ajouter une zone</a></li>
+</ul>
+    {%endblock%}
+
+{%block content%}
+<h1>Modification du produit n°{{Produit.id}}</h1>
+<hr/>
+<div class="well">
+    <form method="post" {{ form_enctype(form) }}>
+{{ form_widget(form) }}
+        <a href="{{ path('newstore_produit_voir', {'id':Produit.id}) }} }}" class="btn">
+            <i class="icon-chevron-left"></i>
+            Retour au produit
+        </a>
+        <input type="submit" class="btn btn-primary" />
+
+    </form>
+</div>
+
+
+{%endblock%}

@@ -1,0 +1,19 @@
+{% extends 'NewstoreLivraisonBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h2>Supprimer une livraison</h2>
+<hr/>
+<p>
+    Etes-vous certain de vouloir supprimer la livraison ?
+</p>
+
+<form action="{{ path('newstore_livraison_supprimer', {'id': Livraison.id}) }}" method="post">
+    <a href="{{ path('newstore_livraison_voir', {'id': Livraison.id}) }}" class="btn">
+        <i class="icon-chevron-left"></i>
+        Retour aux livraisons
+    </a>
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {{ form_rest(form) }}
+</form>
+
+  {%endblock%}

@@ -1,0 +1,194 @@
+<?php
+
+namespace Newstore\LivraisonBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Newstore\CamionBundle\Entity\Camion;
+use Newstore\LivraisonBundle\Entity\Livraison;
+
+/**
+ * LivraisonProduit
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Newstore\LivraisonBundle\Entity\LivraisonCamionRepository")
+ */
+class LivraisonCamion {
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Newstore\LivraisonBundle\Entity\Livraison")
+     */
+    private $livraison;
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Newstore\CamionBundle\Entity\Camion")
+     */
+    private $camion;
+    
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Newstore\ProduitBundle\Entity\Produit")
+     */
+    private $produit;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="volumeOccupe", type="integer")
+     */
+    private $volumeOccupe;
+
+    /**
+     * @var \DateTime
+     * 
+     * @ORM\Column(name="dateLivraison", type="datetime")
+     */
+    private $dateLivraison;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantite", type="integer")
+     */
+    private $quantite;
+
+    public function __construct() {
+        
+    }
+
+    /**
+     * Set livraison
+     *
+     * @param \Newstore\LivraisonBundle\Entity\Livraison $livraison
+     * @return LivraisonProduit
+     */
+    public function setLivraison(\Newstore\LivraisonBundle\Entity\Livraison $livraison) {
+        $this->livraison = $livraison;
+
+        return $this;
+    }
+
+    /**
+     * Get livraison
+     *
+     * @return \Newstore\LivraisonBundle\Entity\Livraison 
+     */
+    public function getLivraison() {
+        return $this->livraison;
+    }
+
+    /**
+     * Set produit
+     *
+     * @param \Newstore\ProduitBundle\Entity\Produit $produit
+     * @return LivraisonProduit
+     */
+    public function setProduit(\Newstore\ProduitBundle\Entity\Produit $produit) {
+        $this->produit = $produit;
+
+        return $this;
+    }
+
+    /**
+     * Get produit
+     *
+     * @return \Newstore\ProduitBundle\Entity\Produit 
+     */
+    public function getProduit() {
+        return $this->produit;
+    }
+
+
+    /**
+     * Set volumeOccupe
+     *
+     * @param integer $volumeOccupe
+     * @return LivraisonCamion
+     */
+    public function setVolumeOccupe($volumeOccupe)
+    {
+        $this->volumeOccupe = $volumeOccupe;
+    
+        return $this;
+    }
+
+    /**
+     * Get volumeOccupe
+     *
+     * @return integer 
+     */
+    public function getVolumeOccupe()
+    {
+        return $this->volumeOccupe;
+    }
+
+    /**
+     * Set dateLivraison
+     *
+     * @param \DateTime $dateLivraison
+     * @return LivraisonCamion
+     */
+    public function setDateLivraison($dateLivraison)
+    {
+        $this->dateLivraison = $dateLivraison;
+    
+        return $this;
+    }
+
+    /**
+     * Get dateLivraison
+     *
+     * @return \DateTime 
+     */
+    public function getDateLivraison()
+    {
+        return $this->dateLivraison;
+    }
+
+    /**
+     * Set camion
+     *
+     * @param \Newstore\CamionBundle\Entity\Camion $camion
+     * @return LivraisonCamion
+     */
+    public function setCamion(\Newstore\CamionBundle\Entity\Camion $camion)
+    {
+        $this->camion = $camion;
+    
+        return $this;
+    }
+
+    /**
+     * Get camion
+     *
+     * @return \Newstore\CamionBundle\Entity\Camion 
+     */
+    public function getCamion()
+    {
+        return $this->camion;
+    }
+
+    /**
+     * Set quantite
+     *
+     * @param integer $quantite
+     * @return LivraisonCamion
+     */
+    public function setQuantite($quantite)
+    {
+        $this->quantite = $quantite;
+    
+        return $this;
+    }
+
+    /**
+     * Get quantite
+     *
+     * @return integer 
+     */
+    public function getQuantite()
+    {
+        return $this->quantite;
+    }
+}

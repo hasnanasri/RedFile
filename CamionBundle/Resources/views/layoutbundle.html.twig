@@ -1,0 +1,31 @@
+{% extends '::myLayout.html.twig' %}
+{%block mainmenu %}
+<li class=""><a href="{{path('newstore_produit_index') }}">Produits</a></li>
+<li class="active"><a href="{{path('newstore_camion_index') }}">Livraison</a></li>
+{%endblock%}
+
+{%block rowContainer%}
+<div id="menu" class="span3 bs-docs-sidebar well">
+    {%block vmenu%}
+    <ul class="nav nav-pills nav-stacked">
+        <li class=""><h4>Camion</h4></li>
+        {%block vmenu_part%}
+        <li class="active"><a href="{{ path('newstore_camion_index') }}"><i class="icon-chevron-right"></i> Liste des camions</a></li>
+        <li class=""><a href="{{ path('newstore_camion_ajouter') }}"><i class="icon-chevron-right"></i> Ajouter un camion</a></li>
+        {%endblock%}
+        <li><hr/></li>
+        <li class=""><h4>Magasins</h4></li>
+        <li class=""><a href="{{ path('newstore_magasin_index') }}"><i class="icon-chevron-right"></i> Liste des magasins</a></li>
+        <li class=""><a href="{{ path('newstore_magasin_ajouter') }}"><i class="icon-chevron-right"></i> Ajouter un magasin</a></li>
+        <li><hr/></li>
+        <li class=""><h4>Livraisons</h4></li>
+        <li class=""><a href="{{ path('newstore_livraison_index') }}"><i class="icon-chevron-right"></i> Liste des livraisons</a></li>
+        <li class=""><a href="{{ path('newstore_livraison_ajouter') }}"><i class="icon-chevron-right"></i> Ajouter un livraison</a></li>
+    </ul>
+    {%endblock%}
+</div>
+<div id="content" class="span8">
+    {%block content%} 
+    {%endblock%}
+</div>
+{%endblock%}

@@ -1,0 +1,19 @@
+{% extends 'NewstoreZoneBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h2>Supprimer une zone</h2>
+<hr/>
+<p>
+    Etes-vous certain de vouloir supprimer la zone "{{ Zone.libelle}}" ?
+</p>
+
+<form action="{{ path('newstore_zone_supprimer', {'id': Zone.id}) }}" method="post">
+    <a href="{{ path('newstore_zone_voir', {'id': Zone.id}) }}" class="btn">
+        <i class="icon-chevron-left"></i>
+        Retour &agrave à la zone
+    </a>
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {{ form_rest(form) }}
+</form>
+
+  {%endblock%}

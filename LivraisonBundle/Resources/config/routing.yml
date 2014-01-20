@@ -1,0 +1,19 @@
+newstore_livraison_index:
+    pattern:  /
+    defaults: { _controller: NewstoreLivraisonBundle:Livraison:index }
+
+newstore_livraison_ajouter:
+    pattern:  /ajouter
+    defaults: { _controller: NewstoreLivraisonBundle:Livraison:ajouter }
+
+newstore_livraison_voir:
+    pattern:  /voir/{id}
+    defaults: { _controller: NewstoreLivraisonBundle:Livraison:voir }
+    
+newstore_livraison_modifier:
+    pattern:  /modifier/{id}
+    defaults: { _controller: NewstoreLivraisonBundle:Livraison:modifier }
+    
+newstore_livraison_supprimer:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: NewstoreLivraisonBundle:Livraison:supprimer }

@@ -1,0 +1,21 @@
+{% extends 'NewstoreProduitBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>Modification de la cat&eacute;gorie n°{{Categorie.id}}</h1>
+<hr/>
+<div class="well">
+    <form method="post" {{ form_enctype(form) }}>
+{{ form_widget(form) }}
+        <a href="{{ path('newstore_categorie_voir', {'id':Categorie.id}) }} }}" class="btn">
+            <i class="icon-chevron-left"></i>
+            Retour &agrave; la cat&eacute;gorie
+        </a>
+        <input type="submit" class="btn btn-primary" />
+
+
+
+    </form>
+</div>
+
+
+{%endblock%}

@@ -1,0 +1,19 @@
+newstore_fournisseur_index:
+    pattern:  /
+    defaults: { _controller: NewstoreFournisseurBundle:Fournisseur:index }
+
+newstore_fournisseur_ajouter:
+    pattern:  /ajouter
+    defaults: { _controller: NewstoreFournisseurBundle:Fournisseur:ajouter }
+    
+newstore_fournisseur_supprimer:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: NewstoreFournisseurBundle:Fournisseur:supprimer }
+    
+newstore_fournisseur_modifier:
+    pattern:  /modifier/{id}
+    defaults: { _controller: NewstoreFournisseurBundle:Fournisseur:modifier }
+    
+newstore_fournisseur_voir:
+    pattern:  /voir/{id}
+    defaults: { _controller: NewstoreFournisseurBundle:Fournisseur:voir }

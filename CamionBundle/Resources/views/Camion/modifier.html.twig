@@ -1,0 +1,21 @@
+{% extends 'NewstoreCamionBundle::layoutbundle.html.twig' %}
+
+{%block content%}
+<h1>Modification du camion n°{{Camion.id}}</h1>
+<hr/>
+<div class="well">
+    <form method="post" {{ form_enctype(form) }}>
+{{ form_widget(form) }}
+        <a href="{{ path('newstore_camion_voir', {'id':Camion.id}) }}" class="btn">
+            <i class="icon-chevron-left"></i>
+            Retour au camion
+        </a>
+        <input type="submit" class="btn btn-primary" />
+
+
+
+    </form>
+</div>
+
+
+{%endblock%}

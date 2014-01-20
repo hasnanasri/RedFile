@@ -1,0 +1,7 @@
+parameters:
+#    newstore_produit.example.class: Newstore\ProduitBundle\Example
+
+services:
+#    newstore_produit.example:
+#        class: %newstore_produit.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
